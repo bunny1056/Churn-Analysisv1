@@ -1,0 +1,17 @@
+import pandas as pd
+
+df = pd.read_csv("customers.csv")
+
+churn_rate = df["churn"].mean() * 100
+
+print("Churn Rate:", round(churn_rate, 2), "%")
+
+print("\nChurn by Contract:")
+print(
+    df.groupby("contract_type")["churn"]
+      .mean()
+      .sort_values(ascending=False)
+)
+
+print("\nAverage CLTV:")
+print(df["cltv"].mean())
