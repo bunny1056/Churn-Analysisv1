@@ -1,0 +1,12 @@
+-- Identify customers with highest churn
+
+SELECT
+    customer_id,
+    monthly_charges,
+    tenure,
+    support_calls,
+    contract_type,
+    churn
+FROM customers
+WHERE churn = 1
+ORDER BY monthly_charges DESC;
